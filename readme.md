@@ -1,0 +1,31 @@
+Student Marks Analyzer
+
+Problem Statement
+
+Create a form to add student marks.
+Each entry has:
+Student Name
+Marks (0–100)
+
+Display:
+A table of students
+Count of students
+Average marks
+Highest marks
+
+Requirements
+Values recalc on every add/delete
+Average must be accurate
+Delete updates everything
+
+
+
+Student Name   |   Marks        
+
+value               value     edit delete 
+value               value     edit delete 
+
+
+
+
+                                Average marks Highest marks
