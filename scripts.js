@@ -4,37 +4,53 @@
 
 const studentInfo = [];
 
-function validateStudentName(studentName) {
+
+
+
+let btn = document.querySelector(".btn");
+btn.addEventListener("click", function(e) {
+        e.preventDefault()
+        let fullName = document.getElementById('studentName').value
+        let mark = document.getElementById("marks").value
+
+        validateStudentName()
+        validateStudentMark()
+
+        storeInformation(fullName,mark)
+        
+        
+        
+})
+
+function validateStudentName() {
+    let name = document.getElementById("studentName")
     let isValid = true;
-    if(studentMark.length > 2) {
-        alert("please enter more that two char")
+    if(name.length > 2) {
         isValid = false;
     }
 
-    if(studentMark.length == 0) {
-        alert("please fill the name")
+    if(name.length == 0) {
         isValid = false;
     }
     return isValid;
 }
 
-function validateStudentMark(studentMark) {
+function validateStudentMark() {
     let isValid = true;
-    if(!(studentMark >= 0 && studentMark <= 100)) {
-        alert("please enter the mark between 0 to 100")
+    let mark = document.getElementById("marks")
+    if(!(mark >= 0 && mark <= 100)) {
         isValid = false
+        
     }
-    if(studentMark.length == 0) {
-        alert("pleasae fill the mark ")
+    if(mark.length == 0) {
         isValid = false;
+        
     }
 
     return isValid;
 }
 
 function storeInformation(studentName,studentMark) {
-    validateStudentName(studentName)
-    validateStudentMark(studentMark)
 
     const eachInfo = {}
     eachInfo.name = studentName;
@@ -43,12 +59,28 @@ function storeInformation(studentName,studentMark) {
     console.log(eachInfo);
 
     studentInfo.push(eachInfo);
+    console.log(studentInfo);
+
+    renderTable();
 }
 
-window.addEventListener("DOMContentLoaded", function () {
-    const studentName = document.getElementById("studentName").value
-    const studentMark = document.getElementById("marks").value
-    const btn = document.querySelector('.btn')
 
-    btn.addEventListener('')
-});
+function renderTable() {
+    const tableBody = document.getElementById('tableBody');
+    console.log(tableBody);
+    
+    tableBody.innerHTML = studentInfo.map((eachStudent,index) => {
+        `
+            <tr>
+                <td>
+                    ${eachStudent.name}
+                </td>
+                <td>
+                    ${eachStudent.mark}
+                </td>
+                <td>✏</td>
+                <td>❌</td>
+        </tr>
+        `
+    }).join(' ')
+}

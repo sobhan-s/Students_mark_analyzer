@@ -18,8 +18,8 @@ Values recalc on every add/delete
 Average must be accurate
 Delete updates everything
 
-
-
+                                                                                  
+                                                                                  
 Student Name   |   Marks        
 
 value               value     edit delete 
